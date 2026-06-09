@@ -6,8 +6,9 @@ import { useGameStore } from '@/app/lib/store';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
+import { Badge } from '@/components/ui/badge';
 import { aiDiceRollSimulation } from '@/ai/flows/ai-dice-roll-simulation-flow';
-import { Trophy, Swords, User, Bot, Dice5, History, AlertCircle } from 'lucide-react';
+import { Trophy, Swords, User, Bot, Dice5, History } from 'lucide-react';
 import { toast } from '@/hooks/use-toast';
 
 type GameState = 'matchmaking' | 'accept' | 'playing' | 'result';
@@ -145,7 +146,7 @@ export default function GamePage() {
   if (gameState === 'accept') {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center p-6 space-y-8">
-        <Card className="glass-card w-full max-w-sm p-8 border-primary/20 text-center space-y-6">
+        <Card className="glass-card w-full max-sm p-8 border-primary/20 text-center space-y-6">
           <div className="space-y-2">
             <h2 className="text-3xl font-black font-headline text-primary uppercase">Opponent Found!</h2>
             <p className="text-muted-foreground">Pro_Gamer_777 is ready.</p>
@@ -272,7 +273,7 @@ export default function GamePage() {
   if (gameState === 'result') {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center p-6 space-y-8 bg-black/60 backdrop-blur-sm">
-        <Card className={`glass-card w-full max-w-sm p-8 border-2 text-center space-y-6 ${gameResult.status === 'win' ? 'border-primary' : 'border-destructive/50'}`}>
+        <Card className={`glass-card w-full max-sm p-8 border-2 text-center space-y-6 ${gameResult.status === 'win' ? 'border-primary' : 'border-destructive/50'}`}>
           <div className="flex justify-center">
             <div className={`w-24 h-24 rounded-full flex items-center justify-center ${gameResult.status === 'win' ? 'gold-gradient' : 'bg-muted'}`}>
               {gameResult.status === 'win' ? <Trophy className="w-12 h-12 text-black" /> : <History className="w-12 h-12 text-white/50" />}
